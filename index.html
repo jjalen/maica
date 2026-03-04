@@ -509,8 +509,8 @@ body.locked {
     <!-- Love Section -->
     <section id="loveSection">
     <div id="heartsContainer"></div>
-    <h1 style="font-size:70px;">Happy 1st monthsary! Bibi❤️</h1>
-    <p style="font-size:22px;">One month of laughter, love, and unforgettable memories together. Here’s to many more! 🌸</p>
+    <h1 id="monthsaryTitle" style="font-size:70px;"></h1>
+    <p id="monthsaryMessage" style="font-size:22px;"></p>
     <div class="counter-cards">
     <div class="counter-card"><h2 id="daysCounter">0</h2><p>Days</p></div>
     <div class="counter-card"><h2 id="hoursCounter">0</h2><p>Hours</p></div>
@@ -955,20 +955,74 @@ function unlockContent(){
     }
 }
 
-// Counters
 function startTimeCounter() {
     const startDate = new Date("2026-01-04T00:00:00");
+
+    function getMonthsDifference(start, now) {
+        let months =
+            (now.getFullYear() - start.getFullYear()) * 12 +
+            (now.getMonth() - start.getMonth());
+
+        if (now.getDate() < start.getDate()) {
+            months--;
+        }
+
+        return months > 0 ? months : 0;
+    }
+
+    function getOrdinal(n) {
+        if (n % 10 === 1 && n % 100 !== 11) return n + "st";
+        if (n % 10 === 2 && n % 100 !== 12) return n + "nd";
+        if (n % 10 === 3 && n % 100 !== 13) return n + "rd";
+        return n + "th";
+    }
+
+    function numberToWord(n) {
+        const words = [
+            "Zero","One","Two","Three","Four","Five",
+            "Six","Seven","Eight","Nine","Ten","Eleven","Twelve"
+        ];
+        return words[n] || n;
+    }
+
     function updateCounter() {
         const now = new Date();
         const diff = now - startDate;
-        document.getElementById("daysCounter").innerText = Math.floor(diff / (1000*60*60*24));
-        document.getElementById("hoursCounter").innerText = Math.floor((diff / (1000*60*60)) % 24);
-        document.getElementById("minutesCounter").innerText = Math.floor((diff / (1000*60)) % 60);
-        document.getElementById("secondsCounter").innerText = Math.floor((diff / 1000) % 60);
+
+        // Time Counter
+        document.getElementById("daysCounter").innerText =
+            Math.floor(diff / (1000*60*60*24));
+        document.getElementById("hoursCounter").innerText =
+            Math.floor((diff / (1000*60*60)) % 24);
+        document.getElementById("minutesCounter").innerText =
+            Math.floor((diff / (1000*60)) % 60);
+        document.getElementById("secondsCounter").innerText =
+            Math.floor((diff / 1000) % 60);
+
+        const months = getMonthsDifference(startDate, now);
+
+        if (months > 0) {
+            // Title
+            document.getElementById("monthsaryTitle").innerText =
+                `Happy ${getOrdinal(months)} monthsary! Bibi ❤️`;
+
+            // Message
+            document.getElementById("monthsaryMessage").innerText =
+                `${numberToWord(months)} month${months > 1 ? "s" : ""} of laughter, love, and unforgettable memories together. Here’s to many more! 🌸`;
+        } else {
+            document.getElementById("monthsaryTitle").innerText =
+                "Happy 1st monthsary! Bibi ❤️";
+
+            document.getElementById("monthsaryMessage").innerText =
+                "One month of laughter, love, and unforgettable memories together. Here’s to many more! 🌸";
+        }
     }
+
     updateCounter();
-    setInterval(updateCounter,1000);
+    setInterval(updateCounter, 1000);
 }
+
+startTimeCounter();
 
 // Hearts
 function createHearts(){
@@ -1121,4 +1175,5 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
