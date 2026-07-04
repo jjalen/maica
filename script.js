@@ -210,7 +210,7 @@ function initLockSystem() {
 
 function playChime() {
   try {
-    const audio = new Audio('assets/music/chime.mp3');
+    const audio = new Audio('music/chime.mp3');
     audio.volume = 0.5;
     audio.play().catch(() => {/* file not provided yet — silently ignore */});
   } catch (e) { /* no-op */ }
@@ -338,29 +338,59 @@ function buildReasonsGrid() {
    SECTION 4 — MEMORIES GALLERY (CUSTOMIZE months / captions / photos)
    ================================================================ */
 const GALLERY = [
-  { month: 'January 2026', items: [
-    { caption: 'The day it became official', seed: 'Multo' },
-    { caption: 'Our first photo together', seed: 'jan-2' }
+   { month: 'October 2025', items: [
+    { caption: 'The day it became official', seed: 'oct1' },
+    { caption: 'The day it became official', seed: 'oct2' },
+    { caption: 'The day it became official', seed: 'oct3' },
+    { caption: 'The day it became official', seed: 'oct4' },
+  ]},
+   { month: 'November 2025', items: [
+    { caption: 'Samgy Date', seed: 'nov1' },
+    { caption: 'First church date', seed: 'nov3' },
+    { caption: 'First church date', seed: 'nov4' },
+    { caption: 'Our first photo together', seed: 'nov2' }
+  ]},
+  { month: 'December 2025', items: [
+    { caption: 'Christmas Party', seed: 'dec1' },
+    { caption: 'Our first photo together', seed: 'dec2' },
+    { caption: 'Our first photo together', seed: 'dec3' },
+    { caption: 'Our first photo together', seed: 'dec4' }
+  ]},
+   { month: 'January 2026', items: [
+    { caption: 'The day it became official', seed: 'jan1' },
+    { caption: 'Our first photo together', seed: 'jan2' },
+    { caption: 'Our first photo together', seed: 'jan3' },
+    { caption: 'Our first photo together', seed: 'jan4' }
   ]},
   { month: 'February 2026', items: [
-    { caption: 'A quiet, easy Sunday', seed: 'feb-1' },
-    { caption: 'That little café we loved', seed: 'feb-2' }
+    { caption: 'A quiet, easy Sunday', seed: 'feb1' },
+    { caption: 'That little café we loved', seed: 'feb21' },
+    { caption: 'That little café we loved', seed: 'feb3' },
+    { caption: 'That little café we loved', seed: 'feb4' }
   ]},
   { month: 'March 2026', items: [
-    { caption: 'The trip we still talk about', seed: 'mar-1' },
-    { caption: 'You, mid-laugh', seed: 'mar-2' }
+    { caption: 'The trip we still talk about', seed: 'march1' },
+    { caption: 'The trip we still talk about', seed: 'march2' },
+    { caption: 'The trip we still talk about', seed: 'march3' },
+    { caption: 'You, mid-laugh', seed: 'march4' }
   ]},
   { month: 'April 2026', items: [
-    { caption: 'Rainy day, good company', seed: 'apr-1' },
-    { caption: 'A silly selfie that became a favorite', seed: 'apr-2' }
+    { caption: 'Rainy day, good company', seed: 'april1' },
+    { caption: 'Rainy day, good company', seed: 'april2' },
+    { caption: 'Rainy day, good company', seed: 'april3' },
+    { caption: 'A silly selfie that became a favorite', seed: 'april4' }
   ]},
   { month: 'May 2026', items: [
-    { caption: 'Celebrating something small together', seed: 'may-1' },
-    { caption: 'Golden hour, both of us', seed: 'may-2' }
+    { caption: 'Celebrating something small together', seed: 'may1' },
+    { caption: 'Golden hour, both of us', seed: 'may2' },
+    { caption: 'Golden hour, both of us', seed: 'may3' },
+    { caption: 'Golden hour, both of us', seed: 'may4' }
   ]},
   { month: 'June 2026', items: [
-    { caption: 'Just another perfect ordinary day', seed: 'kanibalismo' },
-    { caption: 'Six months, and still my favorite person', seed: 'pahina' }
+    { caption: 'My Favorite View ❤️', seed: 'june1' },
+    { caption: 'Effortlessly Gorgeous 🌟', seed: 'june2' },
+    { caption: 'Pretty in Every Way ✨', seed: 'june3' },
+    { caption: 'Golden Girl 🌼', seed: 'june4' }
   ]}
 ];
 
@@ -368,18 +398,46 @@ function imgUrl(seed, w = 700, h = 500) {
  const extensions = {
     pahina: 'png',
     Julie: 'jpeg',
-    'jan-2': 'jpg',
+    'dec1': 'jpg',
+    'dec2': 'jpg',
+    'dec3': 'jfif',
+    'dec4': 'jfif',
+    'jan1': 'jfif',
+    'jan2': 'jfif',
+    'jan3': 'jfif',
+    'jan4': 'jfif',
+    'feb1': 'jfif',
+    'feb21': 'jfif',
+    'feb3': 'jfif',
+    'feb4': 'jfif',
+    'march1': 'jfif',
+    'march2': 'jfif',
+    'march3': 'jfif',
+    'march4': 'jfif',
+    'april1': 'jfif',
+    'april2': 'jfif',
+    'april3': 'jfif',
+    'april4': 'jfif',
+    'may1': 'jfif',
+    'may2': 'jfif',
+    'may3': 'jfif',
+    'may4': 'jfif',
+    'june1': 'jpg',
+    'june2': 'jpg',
+    'june3': 'jpg',
+    'june4': 'jpg',
     'kanibalismo': 'png',
-    'feb-2': 'jpg',
-    'mar-1': 'jpeg',
-    'mar-2': 'png',
-    'apr-1': 'jpg',
-    'apr-2': 'png',
-    'may-1': 'jpeg',
-    'may-2': 'jpg'
+    'oct1': 'jfif',
+    'oct2': 'jfif',
+    'oct3': 'jfif',
+    'oct4': 'jfif',
+    'nov1': 'jfif',
+    'nov2': 'jfif',
+    'nov3': 'jfif',
+    'nov4': 'jfif'
   };
 
-  return `assets/music/${seed}.${extensions[seed] || 'jpg'}`;
+  return `banner/${seed}.${extensions[seed] || 'jpg'}`;
 }
 
 function buildGallery() {
@@ -474,12 +532,12 @@ function buildGallery() {
    SECTION 5 — MUSIC (CUSTOMIZE titles / artists / audio files)
    ================================================================ */
 const SONGS = [
-  { title: 'Multo (Stripped Down)', artist: 'Cup of Joe', seed: 'Multo', file: 'assets/music/song1.mp3' },
-  { title: 'Sandali', artist: 'Cup of Joe', seed: 'sandali', file: 'assets/music/song2.mp3' },
-  { title: 'Kanibalismo', artist: 'Fitterkarma', seed: 'kanibalismo', file: 'assets/music/song4.mp3' },
-  { title: 'Pahina', artist: 'Cup of Joe', seed: 'pahina', file: 'assets/music/song3.mp3' },
-  { title: 'Tahanan', artist: 'El Manu', seed: 'Tahanan', file: 'assets/music/song5.mp3' },
-  { title: 'Baby You Are', artist: 'Julie Anne San Jose', seed: 'Julie', file: 'assets/music/song6.mp3' }
+  { title: 'Multo (Stripped Down)', artist: 'Cup of Joe', seed: 'Multo', file: 'music/song1.mp3' },
+  { title: 'Sandali', artist: 'Cup of Joe', seed: 'sandali', file: 'music/song2.mp3' },
+  { title: 'Kanibalismo', artist: 'Fitterkarma', seed: 'kanibalismo', file: 'music/song4.mp3' },
+  { title: 'Pahina', artist: 'Cup of Joe', seed: 'pahina', file: 'music/song3.mp3' },
+  { title: 'Tahanan', artist: 'El Manu', seed: 'Tahanan', file: 'music/song5.mp3' },
+  { title: 'Baby You Are', artist: 'Julie Anne San Jose', seed: 'Julie', file: 'music/song6.mp3' }
 ];
 
 function buildMusicGrid() {
@@ -496,13 +554,13 @@ function buildMusicGrid() {
       <div class="music-card glass-card" data-file="${song.file}" data-title="${song.title}">
         <img
   class="music-cover"
-  src="assets/music/${song.seed}.jpg"
+  src="music/${song.seed}.jpg"
   alt="${song.title} cover"
   onerror="
     if(this.src.endsWith('.jpg')){
-      this.src='assets/music/${song.seed}.jpeg';
+      this.src='music/${song.seed}.jpeg';
     }else if(this.src.endsWith('.jpeg')){
-      this.src='assets/music/${song.seed}.png';
+      this.src='music/${song.seed}.png';
     }
   ">
         <div class="music-info">
@@ -545,13 +603,15 @@ function buildMusicGrid() {
 /* ================================================================
    FINAL SECTION — TYPED LOVE LETTER  (CUSTOMIZE the text)
    ================================================================ */
-const LOVE_LETTER = `My love,
+const LOVE_LETTER = `My Dearest Maica,
 
-Six months ago, I found the person who makes ordinary days feel like something worth remembering.
+Hindi ko alam kung paano sisimulan ang sulat na ito, pero alam kong bawat salita ay galing sa pusong siguradong sigurado sa’yo. Sa dami ng taong dumaan sa buhay ko, ikaw ang nanatili hindi dahil madali, kundi dahil pinili natin ang isa’t isa kahit mahirap. At doon ko mas lalong napatunayan na ikaw ang mahal ko
 
-Thank you for your patience, your laugh, and the quiet, easy way you make me feel at home. Every version of you is one I fall for again.
+Ikaw ang pahinga ko sa magulong mundo. Kapag pagod ako, sapat na ang boses mo. Kapag naliligaw ako, sapat na ang presensya mo. Hindi mo man palaging alam, pero malaki ang naitulong mo sa kung sino ako ngayon. Mas matatag, mas mapagmahal, mas totoo.
 
-Here's to every month still ahead of us.`;
+Salamat sa pagmamahal mo, sa pasensya mo, at sa paniniwala mo sa atin. Ikaw ang mahal ko ngayon, bukas, at sa lahat ng darating pa.
+
+MARK 11:24 - Whatever you ask for in prayer, believe that you have received it, and it will be yours.`;
 
 function initTypedLetter() {
   const el = document.getElementById('typedLetter');
