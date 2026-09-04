@@ -445,7 +445,7 @@ function imgUrl(seed, w = 700, h = 500) {
     'july4': 'jfif',
     'Aug1': 'jfif',
     'Aug2': 'jfif',
-    'Aug': 'jfif',
+    'Aug3': 'jfif',
     'Aug4': 'jfif',
     'oct1': 'jfif',
     'oct2': 'jfif',
