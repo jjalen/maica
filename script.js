@@ -397,6 +397,12 @@ const GALLERY = [
     { caption: 'Effortlessly Gorgeous 🌟', seed: 'july2' },
     { caption: 'Pretty in Every Way ✨', seed: 'july3' },
     { caption: 'Golden Girl 🌼', seed: 'july4' }
+  ]},
+   { month: 'August 2026', items: [
+    { caption: 'My Favorite View ❤️', seed: 'Aug2' },
+    { caption: 'Effortlessly Gorgeous 🌟', seed: 'Aug1' },
+    { caption: 'Pretty in Every Way ✨', seed: 'Aug3' },
+    { caption: 'Golden Girl 🌼', seed: 'Aug4' }
   ]}
 ];
 
@@ -437,6 +443,10 @@ function imgUrl(seed, w = 700, h = 500) {
     'july2': 'jfif',
     'july3': 'jfif',
     'july4': 'jfif',
+    'Aug1': 'jfif',
+    'Aug2': 'jfif',
+    'Aug': 'jfif',
+    'Aug4': 'jfif',
     'oct1': 'jfif',
     'oct2': 'jfif',
     'oct3': 'jfif',
